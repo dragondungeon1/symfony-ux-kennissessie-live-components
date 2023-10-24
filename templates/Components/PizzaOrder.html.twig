@@ -1,0 +1,26 @@
+<div {{ attributes }}>
+    {% if orderLines is empty %}
+        <twig:Alert color="blue" message="Je hebt nog geen pizza's toegevoegd aan je bestelling."></twig:Alert>
+    {% else %}
+        {% for orderLine in orderLines %}
+            <div style="width: 250px; display: flex; justify-content: space-between">
+                <span style="display: flex; flex: 1; flex-direction: column">
+                    <span>1x Basis pizza</span>
+                    {% if orderLine.toppings %}
+                        <span style="font-size: 14px; display:inline-block; padding-left: 15px; color: #444444; font-style: italic">{{ orderLine.toppings | join(', ') }}</span>
+                    {% endif %}
+                </span>
+                <span style="text-align: right;">{{ orderLine.price | number_format(2) }}</span>
+            </div>
+        {% endfor %}
+
+
+
+        <div style="width: 250px; margin-top: 10px; padding-top: 10px; border-top: 1px solid gray; display: flex; justify-content: space-between">
+            <span style="font-weight: bold; display: flex; flex: 1;">
+                Totaal
+            </span>
+            <span style="text-align: right;">{{ computed.total | number_format(2) }}</span>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('app_index_test') }}">test</a>
+    <br>
+    <h1>Vertel wie je bent</h1>
+    <div data-controller="index" data-index-name-value="lennart">
+{#        define targets data-index-target=x, it has to be inside a dat-controller=x else it wont work#}
+        <input data-index-target="name" data-action="keyup.enter->index#greet" type="text"/>
+
+        <button data-action="click->index#greet" type="submit">groet</button>
+        <div data-index-target="output">
+
+        </div>
+    </div>
+
+    <twig:alert message="hello there" color="red"></twig:alert>
+{#    :message takes a variable#}
+{#    <twig:alert :message="{{ variable }}" color="red"></twig:alert>#}
+{% endblock %}

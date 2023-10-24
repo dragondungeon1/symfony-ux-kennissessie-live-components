@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="display: flex; flex-direction: row; width: 100%;">
+        <div style="width: 50%;">
+            <h1>Stel hieronder je pizza samen</h1>
+            <twig:Pizza></twig:Pizza>
+        </div>
+        <div style="width: 50%;">
+            <h1>De bestelling</h1>
+            <twig:PizzaOrder></twig:PizzaOrder>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h1>Pizza topping log</h1>
+        <twig:PizzaOrderLog></twig:PizzaOrderLog>
+    </div>
+{% endblock %}

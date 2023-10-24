@@ -1,0 +1,7 @@
+<div {{ attributes }} style="background-color: white; border: 1px solid #CCC; padding: 10px; border-radius: 6px;">
+        {% for logLine in logLines %}
+        <p style="line-height: 24px; margin: 0;">De toppings zijn veranderd van <strike style="color: red;">{{ logLine.previous|default(['geen']) | join(', ') }}</strike> naar <span style="color: green;">{{ logLine.current|default(['geen']) | join(', ') }}</span></p>
+    {% else %}
+        ☹️ Je hebt nog geen toppings gekozen. ☹️
+    {% endfor %}
+</div>

@@ -1,0 +1,16 @@
+<div {{ attributes.defaults(stimulus_controller('doh')) }} {{ stimulus_action('doh', 'send', 'doh:send@window') }}>
+    <strong>wat wil je op je pizza</strong>
+    <p>een basis pizza kost 8 euro</p>
+
+    {% for topping in ['anchovis', 'pepperoni', 'cheese', 'olives', 'tuna'] %}
+        <label style="display: block; width: 150px;">
+            <input type="checkbox" data-model="toppings[]" value="{{ topping }}" /> {{ topping }} (+ 1,00)
+        </label>
+    {% endfor %}
+
+    <br />
+    <div>
+        <button type="button" data-action="live#action" data-action-name="orderPizza">Bestel pizza</button>
+        <button type="button" data-action="live#action" data-action-name="clearToppings">Verwijder alle toppings</button>
+    </div>
+</div>
